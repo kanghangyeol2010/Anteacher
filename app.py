@@ -41,15 +41,17 @@ st.set_page_config(
     page_icon="🐜",
 )
 
-# Hide Streamlit menu, header, footer, and deploy button
-st.markdown("""
-    <style>
-    #MainMenu {visibility: hidden;}
-    header {visibility: hidden;}
-    footer {visibility: hidden;}
-    .stAppDeployButton {display:none;}
-    </style>
-    """, unsafe_allow_html=True)
+# 모든 UI 요소를 숨기는 마법의 CSS
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}       /* 우상단 메뉴 아이콘 숨기기 */
+            header {visibility: hidden;}         /* 상단 헤더 영역 전체 숨기기 */
+            footer {visibility: hidden;}         /* 하단 Made with Streamlit 숨기기 */
+            .stAppDeployButton {display:none;}   /* Deploy 버튼 숨기기 */
+            div[data-testid="stToolbar"] {visibility: hidden;} /* 툴바 숨기기 */
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────
 # Global CSS – Finance Dark Blue Theme
