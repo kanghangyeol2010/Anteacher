@@ -41,27 +41,20 @@ st.set_page_config(
     page_icon="🐜",
 )
 
-# 모든 UI 요소를 숨기는 마법의 CSS (사이드바 버튼은 유지)
+# 모든 UI 요소를 숨기는 마법의 CSS (사이드바 버튼 복구 버전)
 hide_st_style = """
             <style>
-            /* 1. 우측 상단 프로필과 메뉴 버튼 영역을 통째로 삭제 */
-            [data-testid="stHeaderActionElements"] {
+            /* 1. 우측 상단 지저분한 요소 제거 */
+            [data-testid="stHeaderActionElements"], .stAppDeployButton, #MainMenu {
                 display: none !important;
             }
-            
-            /* 2. 하단 Made with Streamlit 삭제 */
-            footer {
-                visibility: hidden;
-            }
-            
-            /* 3. 헤더 전체를 투명하게 하지만 사이트바 버튼은 살림 */
-            header {
-                background-color: rgba(0,0,0,0) !important;
-            }
-            
-            /* 4. Deploy 버튼 삭제 */
-            .stAppDeployButton {
-                display: none !important;
+            /* 2. 하단 푸터 제거 */
+            footer { visibility: hidden; }
+            /* 3. 헤더 투명화 및 화살표 버튼 복구 */
+            header { background-color: rgba(0,0,0,0) !important; }
+            button[data-testid="stSidebarCollapseIcon"], button[aria-label="Open sidebar"] {
+                visibility: visible !important;
+                color: #40c4ff !important;
             }
             </style>
             """
