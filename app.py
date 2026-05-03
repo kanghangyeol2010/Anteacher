@@ -41,14 +41,28 @@ st.set_page_config(
     page_icon="🐜",
 )
 
-# 모든 UI 요소를 숨기는 마법의 CSS
+# 모든 UI 요소를 숨기는 마법의 CSS (사이드바 버튼은 유지)
 hide_st_style = """
             <style>
-            #MainMenu {visibility: hidden;}       /* 우상단 메뉴 아이콘 숨기기 */
-            header {visibility: hidden;}         /* 상단 헤더 영역 전체 숨기기 */
-            footer {visibility: hidden;}         /* 하단 Made with Streamlit 숨기기 */
-            .stAppDeployButton {display:none;}   /* Deploy 버튼 숨기기 */
-            div[data-testid="stToolbar"] {visibility: hidden;} /* 툴바 숨기기 */
+            /* 1. 우측 상단 프로필과 메뉴 버튼 영역을 통째로 삭제 */
+            [data-testid="stHeaderActionElements"] {
+                display: none !important;
+            }
+            
+            /* 2. 하단 Made with Streamlit 삭제 */
+            footer {
+                visibility: hidden;
+            }
+            
+            /* 3. 헤더 전체를 투명하게 하지만 사이트바 버튼은 살림 */
+            header {
+                background-color: rgba(0,0,0,0) !important;
+            }
+            
+            /* 4. Deploy 버튼 삭제 */
+            .stAppDeployButton {
+                display: none !important;
+            }
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
