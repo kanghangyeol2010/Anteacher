@@ -41,6 +41,16 @@ st.set_page_config(
     page_icon="🐜",
 )
 
+# Hide Streamlit menu, header, footer, and deploy button
+st.markdown("""
+    <style>
+    #MainMenu {visibility: hidden;}
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+    .stAppDeployButton {display:none;}
+    </style>
+    """, unsafe_allow_html=True)
+
 # ─────────────────────────────────────────
 # Global CSS – Finance Dark Blue Theme
 # ─────────────────────────────────────────
