@@ -1,0 +1,14 @@
+streamlit
+pandas
+numpy
+matplotlib
+plotly
+yfinance
+finance-datareader
+google-generativeai
+python-dotenv
+requests
+feedparser
+transformers
+torch
+scipy
